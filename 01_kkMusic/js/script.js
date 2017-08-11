@@ -17,6 +17,8 @@ $(function(){
 
 	$("#newSong").slider();
 });
+
+
 ;(function($ , window , document , undefined ){
 	var Plugin = function(elem){
 		this.$oParent = elem;
@@ -33,6 +35,13 @@ $(function(){
 		inital:function(){
 			var self = this;
 			console.log(this.$slider_next);
+
+			this.$slider_btn.click(function(){
+				var cur_index = $(this).index();
+				num = cur_index;
+				self.setDot(num);
+				self.$slider_wrapper.animate({left: -num * self.dis_w},600);
+			});
 
 			this.$slider_prev.click(function(){
 				if(self.b_stop){
