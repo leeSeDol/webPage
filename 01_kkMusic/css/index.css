@@ -110,8 +110,8 @@
 
 .main .img img,
 .main .img i,
-.main .img .mask,
-.main .img .icon-play{
+.main .mask,
+.main .icon-play{
 	transition:all 0.4s;
 	-webkit-transition:all 0.4s;
 }
@@ -119,7 +119,7 @@
 	transform:scale(1.07);
 	-webkit-transform:scale(1.07);
 }
-.main .img .mask{
+.main .mask{
 	position:absolute;
 	top:0;
 	left:0;
@@ -128,7 +128,7 @@
 	background-color: #000;
 	opacity:0;
 }
-.main .img .icon-play{
+.main .icon-play{
 	position:absolute;
 	top:50%;
 	left:50%;
@@ -142,7 +142,8 @@
 }
 
 /*play && mask 这里有一个就复制一个过来*/
-.main-slider .slider-wrapper .img:hover .mask{
+.main-slider .slider-wrapper .img:hover .mask,
+.rank-list__item:hover .mask{
 	opacity:0.5;
 }
 .main-slider .slider-wrapper .img:hover .icon-play{
@@ -150,7 +151,11 @@
 	transform:scale(1);
 	-webkit-transform:scale(1);
 }
-
+.rank-list__item:hover .icon-play{
+	opacity:1;
+	transform:scale(1);
+	-webkit-transform:scale(1);	
+}
 .main-slider .slider-wrapper .info{
 	width:100%;
 	height:114px;
@@ -214,8 +219,6 @@
 .slider-btns span:hover i{
 	background-color: rgba(255,255,255,1);
 }
-
-
 .main-operate{}
 .main-operate .slider-prev,
 .main-operate .slider-next{
@@ -444,6 +447,11 @@
 }
 
 
+
+
+
+
+
 /*newSong*/
 #newSong{
 	height:734px;
@@ -457,6 +465,9 @@
 	width:4800px;
 }
 
+
+
+
 /*recommend*/
 #recommend{
 	height:610px;
@@ -466,6 +477,10 @@
 }
 #recommend .main-title .line{
 	background-color: #000;
+}
+#recommend .main-operate .slider-prev,
+#recommend .main-operate .slider-next{
+	background-color: rgba(0,0,0,0.1);
 }
 .carousel-slider{
 	position:relative;
@@ -514,10 +529,119 @@
 .carousel-slider .item img{
 	width:100%;
 }
+#recommend .slider-btns span i{
+	background-color: #b9b9b9;
+}
+#recommend .slider-btns span.cur i{
+	background-color: #151515;
+}
 
 
-
-
+/*rank*/
+#rank{
+	width:100%;
+	height:830px;
+	background:url('../images/cont/rank_bg.jpg') no-repeat;
+	background-position:center 0%;
+}
+#rank .main-title .title i{
+	background-position:0 -120px;
+}
+#rank .main-title .title i{
+	width:144px;
+}
+#rank .readAll{
+	top:128px;
+}
+#rank .rank-list,
+#rank .rank-list a{
+	color:#fff;
+}
+#rank .rank-list__item{
+	position:relative;
+	overflow:hidden;
+	width:25%;
+	height:568px;
+	float:left;
+}
+.rank-bg{
+	position:absolute;
+	width:100%;
+	height:100%;
+	background:url('../images/cont/rank_list_bg.jpg') no-repeat;
+	-webkit-transition:all 0.4s;
+	transition:all 0.4s;
+}
+.rank-list__item:hover .rank-bg{
+	transform:scale(1.07);
+	-webkit-transform:scale(1.07);
+}
+.rank-list__item1 .rank-bg{
+	background-position: 0 0;
+}
+.rank-list__item2 .rank-bg{
+	background-position: -300px 0;
+}
+.rank-list__item3 .rank-bg{
+	background-position: -600px 0;
+}
+.rank-list__item4 .rank-bg{
+	background-position: -900px 0;
+}
+.rank-list__item .mask,
+.rank-list__item:hover .mask{
+	margin-top:0;
+}
+.rank-list__item .icon-play{
+	top:207px;
+}
+.rank-list__item .title{
+	position:absolute;
+	width:200px;
+	top:80px;
+	left:50%;
+	margin-left:-100px;
+	text-align:center;
+}
+.rank-list__item .title i{
+	display:inline-block;
+	width:65px;
+	height:22px;
+	background: url('../images/main_title.png') no-repeat;
+	background-position: 0 -300px;
+}
+.rank-list__item .title h3{
+	line-height:54px;
+	font-size:36px;
+}
+.rank-list__item .line{
+	position:absolute;
+	width:65px;
+	height:2px;
+	top:200px;
+	left:119px;
+	background-color: rgba(255,255,255,0.3);
+}
+.rank-list__item:hover .line{
+	display:none;
+}
+.rank-list__item .song-list{
+	position:absolute;
+	left:60px;
+	bottom:40px;
+}
+.rank-list__item .song-list .song-list__item{
+	margin-top:10px;
+	height:40px;
+}
+.rank-list__item .song-list .song-list__item a{
+	font-size:16px;
+}
+.rank-list__item .song-list .song-list__item > span{
+	padding-left:15px;
+	line-height:30px;
+	color:rgba(255,255,255,0.5);
+}
 /*footer*/
 .footer{
 	height:470px;
