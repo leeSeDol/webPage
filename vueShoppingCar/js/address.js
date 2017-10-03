@@ -2,9 +2,12 @@ new Vue({
 	el:'.container',
 	data:{
 		addressList:[],
-		limitNum:3
+		limitNum:3,
+		currentIndex:0,
+		moreFlag:false,
+		shippingMethod:1
 	},
-	mounted:function(){  
+	mounted:function(){
 		this.$nextTick(function(){
 			this.getAdressList();
 		});
@@ -25,7 +28,22 @@ new Vue({
 			});
 		},
 		loadMore:function(){
-			this.limitNum = this.addressList.length;
+			if(this.moreFlag == false){
+				this.limitNum = this.addressList.length;
+				this.moreFlag = true;
+			}else{
+				this.limitNum = 3;
+				this.moreFlag = false;
+			}
+		},
+		setDefault:function(addressId){
+			this.addressList.forEach(function(item , index){
+				if(item.addressId == addressId){
+					item.isDefault = true;
+				}else{
+					item.isDefault = false;
+				}
+			});
 		}
 	}
 });
